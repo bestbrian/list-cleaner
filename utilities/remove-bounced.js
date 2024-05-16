@@ -1,4 +1,4 @@
-const { readCSV } = require("./read-csv.js");
+const { readCSV } = require("../helpers");
 
 async function removeBouncedEmails(emails, bouncedListPath) {
   const bouncedEmails = await readCSV(bouncedListPath);

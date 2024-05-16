@@ -11,9 +11,9 @@ function writeEmailsToCSV(emails, outputPath) {
   csvWriter
     .writeRecords(records)
     .then(() =>
-      console.log("Cleaned email list has been written to results/" + outputPath)
+      console.log(`\x1b[32mCompleted.\x1b[0m`)
     )
-    .catch((err) => console.error("Failed to write cleaned email list:", err));
+    .catch((err) => console.error("Failed to write merged email list:", err));
 }
 
 module.exports = { writeEmailsToCSV };

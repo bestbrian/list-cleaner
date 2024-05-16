@@ -1,17 +1,15 @@
 const { readCSV } = require("./read-csv.js");
-const { getDomain } = require("./utils.js");
-const { removeBouncedEmails } = require("./clean-bounced.js");
-const { removeTempDomains } = require("./clean-temp-domains.js");
+const { getDomain } = require("./get-domain.js");
 const { runCheckDomains } = require("./temp-domains.js");
 const { writeEmailsToCSV } = require("./write-to-csv.js");
-const { mergeLists } = require("./merge-lists.js");
+// const { processEmails } = require("../utilities/process-emails.js");
+// const { removeDuplicateEmails } = require("../utilities/remove-duplicates.js");
 
 module.exports = {
   readCSV,
   getDomain,
-  mergeLists,
-  removeBouncedEmails,
-  removeTempDomains,
   runCheckDomains,
   writeEmailsToCSV,
+  // processEmails,
+  // removeDuplicateEmails
 };

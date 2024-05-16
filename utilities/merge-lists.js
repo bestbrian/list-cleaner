@@ -1,10 +1,10 @@
 const fs = require("fs");
 const path = require("path");
 const csv = require("csv-parser");
-const { writeEmailsToCSV } = require("./write-to-csv.js");
+const { writeEmailsToCSV } = require("../helpers");
 
 function mergeLists(fileDirectory, outputPath) {
-  fs.readdir(fileDirectory ?? process.env.FILE_DIRECTORY, (err, files) => {
+  fs.readdir(process.env.FILE_DIRECTORY ?? fileDirectory, (err, files) => {
     if (err) {
       console.error("Error reading directory:", err);
       return;
@@ -12,7 +12,7 @@ function mergeLists(fileDirectory, outputPath) {
 
     const csvFiles = files
       .filter((file) => path.extname(file) === ".csv")
-      .map((file) => path.join(process.env.FILE_DIRECTORY, file));
+      .map((file) => path.join(process.env.FILE_DIRECTORY ?? fileDirectory, file));
 
     let combinedData = [];
 
@@ -31,7 +31,8 @@ function mergeLists(fileDirectory, outputPath) {
         })
         .on("end", () => {
           if (index === csvFiles.length - 1) {
-            writeEmailsToCSV(combinedData, outputPath);
+            writeEmailsToCSV(combinedData, process.env.MERGED_LIST ?? outputPath);
+            console.log(`🔗 Merged email list has been written to \x1b[32mresults/${outputPath}\x1b[0m`);
           }
         })
         .on("error", (err) => {

@@ -1,5 +1,5 @@
-const { readCSV } = require("./read-csv.js");
-const { getDomain } = require("./utils.js");
+const { readCSV, getDomain } = require("../helpers");
+
 // Function to remove emails with temporary domains from the list
 async function removeTempDomains(emails, blockListPath) {
   const tempDomains = await readCSV(blockListPath);

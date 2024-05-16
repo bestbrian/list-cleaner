@@ -1,5 +1,5 @@
 const { readCSV } = require("./read-csv.js");
-const { getDomain } = require("./utils.js");
+const { getDomain } = require("./get-domain.js");
 
 async function checkDomains(listPath, blockListPath) {
   try {

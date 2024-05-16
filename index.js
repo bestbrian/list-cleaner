@@ -1,72 +1,17 @@
 require("dotenv").config();
-const {
-  readCSV,
-  mergeLists,
-  removeBouncedEmails,
-  removeTempDomains,
-  writeEmailsToCSV,
-} = require("./helpers");
 
-const blockListPath = "./data/disposable_email_blocklist.csv";
-const outputPath = "./cleaned-list.csv";
+const { mergeLists } = require("/utilities");
 
-mergeLists(process.env.FILE_DIRECTORY, "examplemerge.csv")
+mergeLists(process.env.FILE_DIRECTORY, process.env.MERGED_LIST);
+// // processEmails();
 
-// fs.readdir(process.env.FILE_DIRECTORY, (err, files) => {
-//   if (err) {
-//     console.error("Error reading directory:", err);
-//     return;
-//   }
+// // #3 Remove All Duplicates
+// removeDuplicateEmails(
+//   `./results/${process.env.FILTERED_LIST}`,
+//   process.env.CLEANED_LIST
+// );
 
-//   const csvFiles = files
-//     .filter((file) => path.extname(file) === ".csv")
-//     .map((file) => path.join(process.env.FILE_DIRECTORY, file));
 
-//   let combinedData = [];
-
-//   csvFiles.forEach((file, index) => {
-//     fs.createReadStream(file)
-//       .pipe(csv())
-//       .on("data", (row) => {
-//         if (row.email) {
-//           const cleanedEmail = row.email.toLowerCase().trim();
-//           combinedData.push({ ...row, email: cleanedEmail });
-//         } else {
-//           console.warn(
-//             `Skipping row with missing email data: ${JSON.stringify(row)}`
-//           );
-//         }
-//       })
-//       .on("end", () => {
-//         if (index === csvFiles.length - 1) {
-//           writeEmailsToCSV(combinedData, "./combined.csv");
-//         }
-//       })
-//       .on("error", (err) => {
-//         console.error(`Error processing file ${file}:`, err);
-//       });
-//   });
-// });
-
-// // // Main function to perform the operations
-// async function processEmails() {
-//   try {
-//     // Read the CSV files
-//     const emails = await readCSV("./combined.csv");
-
-//     // Remove bounced emails
-//     const validEmails = await removeBouncedEmails(
-//       emails,
-//       process.env.BOUNCED_LIST
-//     );
-
-//     // Remove emails with temporary domains
-//     const finalEmails = await removeTempDomains(validEmails, blockListPath);
-
-//     writeEmailsToCSV(finalEmails, process.env.OUTPUT_PATH ?? outputPath);
-//   } catch (err) {
-//     console.error("Error processing emails:", err.message);
-//   }
-// }
-
-// processEmails();
+// 1. merge (combine lists, return "merged.csv"), 
+// 2. remove (remove bounced, bad domains, return "filtered.csv" that shows emails removed), 
+// 3. filter (remove duplicates, return "cleaned.csv" that shows final list)
