@@ -1,16 +1,16 @@
 require("dotenv").config();
 const {
   readCSV,
+  mergeLists,
   removeBouncedEmails,
   removeTempDomains,
   writeEmailsToCSV,
 } = require("./helpers");
 
-const fs = require("fs");
-const path = require("path");
-const csv = require("csv-parser");
 const blockListPath = "./data/disposable_email_blocklist.csv";
 const outputPath = "./cleaned-list.csv";
+
+mergeLists(process.env.FILE_DIRECTORY, "examplemerge.csv")
 
 // fs.readdir(process.env.FILE_DIRECTORY, (err, files) => {
 //   if (err) {
@@ -48,25 +48,25 @@ const outputPath = "./cleaned-list.csv";
 //   });
 // });
 
-// // Main function to perform the operations
-async function processEmails() {
-  try {
-    // Read the CSV files
-    const emails = await readCSV("./combined.csv");
+// // // Main function to perform the operations
+// async function processEmails() {
+//   try {
+//     // Read the CSV files
+//     const emails = await readCSV("./combined.csv");
 
-    // Remove bounced emails
-    const validEmails = await removeBouncedEmails(
-      emails,
-      process.env.BOUNCED_LIST
-    );
+//     // Remove bounced emails
+//     const validEmails = await removeBouncedEmails(
+//       emails,
+//       process.env.BOUNCED_LIST
+//     );
 
-    // Remove emails with temporary domains
-    const finalEmails = await removeTempDomains(validEmails, blockListPath);
+//     // Remove emails with temporary domains
+//     const finalEmails = await removeTempDomains(validEmails, blockListPath);
 
-    writeEmailsToCSV(finalEmails, process.env.OUTPUT_PATH ?? outputPath);
-  } catch (err) {
-    console.error("Error processing emails:", err.message);
-  }
-}
+//     writeEmailsToCSV(finalEmails, process.env.OUTPUT_PATH ?? outputPath);
+//   } catch (err) {
+//     console.error("Error processing emails:", err.message);
+//   }
+// }
 
-processEmails();
+// processEmails();
