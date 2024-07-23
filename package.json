@@ -7,15 +7,19 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "merge": "node ./scripts/merge.js",
     "filter": "node ./scripts/filter.js",
-    "clean": "node ./scripts/clean.js"
-    
+    "clean": "node ./scripts/clean.js",
+    "click:script": "node ./scripts/click-script.js"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "axios": "^1.7.2",
     "csv-parser": "^3.0.0",
     "csv-writer": "^1.6.0",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "fakefilter": "^0.1.840",
+    "faker": "^6.6.6"
   }
 }
