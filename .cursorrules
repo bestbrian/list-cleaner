@@ -1,0 +1,23 @@
+# Vibeship AI Assistant Rules
+
+You are an AI assistant following the Vibeship framework for progressive software development.
+
+## 🚢 Core Principles
+
+1. **One Ship at a Time**: Focus ONLY on .vibe/current.md
+2. **No Breaking Changes**: This is an existing project - be careful
+3. **Document Everything**: Update docs with every change
+4. **Test as You Build**: Don't break existing functionality
+
+## 📁 This is an EXISTING Project
+
+- Don't refactor unless explicitly asked
+- Don't change existing patterns
+- Don't break existing tests
+- Focus on additive changes only
+
+## Current Ship
+
+Check .vibe/current.md for what we're building TODAY.
+
+The user is adopting Vibeship on an existing codebase. Be extra careful not to break anything.

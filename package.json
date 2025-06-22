@@ -8,7 +8,12 @@
     "merge": "node ./scripts/merge.js",
     "filter": "node ./scripts/filter.js",
     "clean": "node ./scripts/clean.js",
-    "click:script": "node ./scripts/click-script.js"
+    "click:script": "node ./scripts/click-script.js",
+    "vibe": "node -e \"const fs=require('fs'); const c=fs.readFileSync('.vibe/current.md','utf8'); const m=c.match(/# Current Ship: #(\\\\d+) - ([^\\\\n]+)/); const s=c.match(/\\\\*\\\\*Status\\\\*\\\\*: ([^\\\\n]+)/); const t=(c.match(/\\\\[x\\\\]/g)||[]).length; const tt=(c.match(/\\\\[ \\\\]/g)||[]).length+t; console.log('\\\\n🚢 Ship #'+(m?m[1]:'?')+': '+(m?m[2]:'Unknown')+'\\\\n📊 Status: '+(s?s[1]:'Unknown')+'\\\\n✅ Progress: '+t+'/'+tt+' tasks ('+Math.round(t/tt*100)+'%)\\\\n');\"",
+    "vibe:new": "node scripts/new-ship.js",
+    "vibe:ship": "npm test && npm run build",
+    "vibe:metrics": "node scripts/vibe-metrics.js",
+    "vibe:help": "echo '\\n🚢 VIBESHIP COMMANDS\\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\\nnpm run vibe         - Current ship status\\nnpm run vibe:new     - Start a new ship\\nnpm run vibe:ship    - Run all checks\\nnpm run vibe:metrics - Full metrics report\\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\\n'"
   },
   "author": "",
   "license": "ISC",
