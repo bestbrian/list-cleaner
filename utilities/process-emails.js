@@ -1,7 +1,6 @@
 const { readCSV, writeEmailsToCSV } = require("../helpers");
 const { removeBouncedEmails } = require("./remove-bounced");
 const { removeTempDomains } = require("./remove-temp-domains");
-const { isFakeDomainOnline, isFakeEmailOnline } = require('fakefilter')
 
 // Main function to perform the operations
 async function processEmails(targetFile, outputFile) {
@@ -17,8 +16,6 @@ async function processEmails(targetFile, outputFile) {
 
     // Remove emails with temporary domains
     const finalEmails = await removeTempDomains(validEmails, process.env.BLOCKED_DOMAINS);
-    console.log(await isFakeDomainOnline('domain.com'))
-    console.log(await isFakeEmailOnline('user@domain.com'))
 
     // Write the filtered emails to the output file
     writeEmailsToCSV(finalEmails, process.env.FILTERED_LIST ?? outputFile);

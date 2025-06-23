@@ -4,22 +4,33 @@
 
 ## 🚢 Ship Queue (Next 3 Ships)
 
-2. [First real feature - what small improvement can you ship tomorrow?]
-3. [Second feature - what would users notice?]
-4. [Third feature - what would make this more useful?]
+2. **Fix Critical Bugs** - Fix race condition in merge & remove security vulnerability
+3. **Add Environment Setup** - Create .env.example and setup documentation
+4. **Add Validation & Error Handling** - Validate emails, handle missing files, proper error messages
 
 ## 🌊 Ocean of Ideas (Someday/Maybe)
 
 ### Features
-- [ ] [List all the features you've been thinking about]
-- [ ] [Big features go here to get them out of your head]
-- [ ] [Dream features for version 2.0]
+- [ ] Web UI for drag-and-drop email list cleaning
+- [ ] Progress indicators during processing
+- [ ] Export statistics report (emails removed, reasons why)
+- [ ] Support for different CSV formats/headers
+- [ ] Batch processing multiple directories
+- [ ] API endpoint version
 
 ### Technical Improvements
-- [ ] Performance optimizations
-- [ ] Better error handling
-- [ ] Test coverage improvements
-- [ ] Code refactoring
+- [ ] Fix race condition in merge-lists.js (async file handling)
+- [ ] Remove faker vulnerability
+- [ ] Add email format validation
+- [ ] Create results directory automatically
+- [ ] Remove test code from process-emails.js
+- [ ] Remove unrelated click-script.js
+- [ ] Add comprehensive error handling
+- [ ] Standardize path handling
+- [ ] Add unit tests
+- [ ] Add integration tests
+- [ ] Performance optimization for large lists
+- [ ] Stream processing for memory efficiency
 
 ### Business Ideas
 - [ ] User feedback system

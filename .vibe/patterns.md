@@ -6,32 +6,48 @@
 
 ### File Organization
 ```
-✅ DO: [Your existing patterns]
+✅ DO: Keep scripts in /scripts folder
+✅ DO: Keep utilities in /utilities folder  
+✅ DO: Keep data files in /data folder
+✅ DO: Output to /results folder
 ✅ DO: Keep existing structure until Ship #10
-✅ DO: Document decisions as you go
 
-❌ DON'T: Refactor everything at once
+❌ DON'T: Mix scripts and utilities
 ❌ DON'T: Change file structure mid-ship
 ❌ DON'T: Break existing patterns without planning
 ```
 
-### Component Structure
+### Naming Conventions
 ```
-[Copy your existing patterns here]
-[Example: How you currently structure components]
-[Example: Your naming conventions]
+✅ DO: Use kebab-case for file names (merge-lists.js)
+✅ DO: Use camelCase for function names (mergeLists)
+✅ DO: Use descriptive names (remove-bounced.js not rb.js)
+
+❌ DON'T: Use spaces in filenames
+❌ DON'T: Use unclear abbreviations
 ```
 
 ## 💻 Coding Patterns
 
-### Error Handling
+### CSV Processing
 ```
-[Your current error handling patterns]
+✅ DO: Use csv-parser for reading CSV files
+✅ DO: Use csv-writer for writing CSV files
+✅ DO: Handle headers properly
+✅ DO: Normalize email addresses (lowercase, trim)
+
+❌ DON'T: Parse CSV manually
+❌ DON'T: Assume CSV format without checking
 ```
 
-### State Management
+### Async Operations
 ```
-[Your current state management approach]
+✅ DO: Use promises/async-await
+✅ DO: Handle stream events properly
+✅ DO: Wait for all operations to complete
+
+❌ DON'T: Use callbacks for new code
+❌ DON'T: Ignore async errors
 ```
 
 ## 🎨 UI Patterns

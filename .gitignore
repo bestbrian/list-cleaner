@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+
+# Output files
+results/
+
+# OS Files
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Test email lists (keep example only)
+data/email-lists/*
+!data/email-lists/example.csv
